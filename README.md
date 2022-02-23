@@ -1,3 +1,2 @@
-# operation_management
-Operational
-"# sample-mpi-py" 
+# Sample MPI project in python
+
