@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}}</title>
+
+  <!-- Bootstrap 5 CSS only -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css"
+    integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{{ url_for('home') }}">Paydee</a>
+    </div>
+  </nav>
+
+</head>
+
+<body>
+
+  {% block contentA %}
+  {% endblock contentA %}
+
+  {% block contentB %}
+  {% endblock contentB %}
+
+  {% block contentC %}
+  {% endblock contentC %}
+
+  {% block contentD %}
+  {% endblock contentD %}
+
+
+  <!-- Bootstrap 5 JavaScript Bundle with Popper.js -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js"
+    integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD"
+    crossorigin="anonymous"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  {% block script %}
+  {% endblock script %}
+</body>
+
+</html>

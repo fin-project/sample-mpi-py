@@ -1,2 +1,3 @@
-# sample-mpi-py
-Sample MPI code in python
+# operation_management
+Operational
+"# sample-mpi-py" 
