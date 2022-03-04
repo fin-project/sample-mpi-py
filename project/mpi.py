@@ -66,7 +66,7 @@ class MPI:
         }
 
         k = Key(self.mMerchantId, self.mTrxnId)
-        k.GenKeys()
+        #k.GenKeys()
         self.pubkey = k.GetPublicKey()
         body = {
             "merchantId" : self.mMerchantId,
