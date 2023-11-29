@@ -39,7 +39,7 @@ class Key:
 
         pubkey = open(self.mPublicKeyPath).read()
         pubkey = pubkey.replace('-----BEGIN PUBLIC KEY-----','').replace('-----END PUBLIC KEY-----','')
-        pubkey = pubkey.replace('+','-').replace('/','_').strip()
+        pubkey = pubkey.replace('+','-').replace('/','_').replace("\n", '').strip()
         return pubkey
 
     def Sign(self, data):

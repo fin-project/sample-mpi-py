@@ -24,10 +24,8 @@ def mpi_status():
 @app.route('/mpi_redirect', methods=['POST', 'GET'])
 def mpi_redirect():
 
-    print("---header---")
-    print(request.headers)
-    
-    print("------data------")
+  
+
     appr_code = request.form.get('MPI_APPR_CODE',"")
     rrn = request.form.get('MPI_RRN',"")
     bin = request.form.get('MPI_BIN',"")
@@ -67,28 +65,24 @@ def checkout_iframe():
     form = MpiForm()
 
     now = datetime.now().strftime("%Y%m%d%H%M%S")
+    url = app.config['MPI_URL']
 
     # Load default value
     form.MPI_TRANS_TYPE.data 	= "SALES"
     form.MPI_MERC_ID.data       = app.config["TEST_MID"]
-    form.MPI_TRXN_ID.data       = app.config["TEST_APP_KEY"] + now
+    form.MPI_TRXN_ID.data       = "pybxs" + now
     form.MPI_PURCH_DATE.data 	= now
     form.MPI_PURCH_CURR.data 	= "458"
     form.MPI_PURCH_AMT.data 	= "100"
     form.MPI_ADDR_MATCH.data 	= "N"
 
-    return render_template('CheckoutIframe.html', form=form)
+    return render_template('CheckoutIframe.html', form=form, url=url)
 
 
 @app.route('/sign_data', methods=['GET','POST'])
 def sign_data():
 
-    print("---header---")
-    print(request.headers)
-    
-    print("------data------")
-    print(request.form)
-    
+      
     trans_type = request.form.get('MPI_TRANS_TYPE',"")
     merc_id = request.form.get('MPI_MERC_ID',"")
     pan = request.form.get('MPI_PAN',"")
@@ -137,7 +131,7 @@ def sign_data():
     data = data+ship_addr_line3+email+home_phone+home_phone_cc+work_phone+work_phone_cc+mobile_phone
     data = data+mobile_phone_cc+response_type+additional_info_ind+recurring_frequency+recurring_expiry
     data = data+instal_data+recurring_max_amt+recurring_total_amt
-    #print(data)
+
 
     if trxn_id != "":
         id = trxn_id
